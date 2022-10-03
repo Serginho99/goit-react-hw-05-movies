@@ -1,5 +1,5 @@
 {
-  "name": "hello-react-hw-05-movies",
+  "name": "goit-react-hw-05-movies",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://Serginho99.github.io/goit-react-hw-05-movies/",
@@ -12,6 +12,7 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
