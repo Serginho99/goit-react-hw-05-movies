@@ -6,7 +6,9 @@ export default function NavBar() {
     <>
       <NavList>
         <NavListItem>
-          <NavListLink to={'/'}>Home</NavListLink>
+          <NavListLink to={'/'} end>
+            Home
+          </NavListLink>
         </NavListItem>
         <NavListItem>
           <NavListLink to={'/movies'}>Movies</NavListLink>

@@ -9,3 +9,37 @@ export async function fetchTrendingFilms(page) {
   );
   return res.data;
 }
+
+export async function fetchMovieByQuery(query, page) {
+  const res = await axios.get(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&page=${page}`
+  );
+  return res.data;
+}
+
+export async function movieDetailsById(id) {
+  const res = await axios.get(`
+  ${BASE_URL}/movie/${id}?api_key=${API_KEY}
+  `);
+  return res.data;
+}
+
+export async function fetchActorsFilm(id) {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`
+    );
+    return res.data;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function fetchReviews(id) {
+  try {
+    const res = await axios.get(`
+    ${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}
+    `);
+    return res.data;
+  } catch (error) {}
+}
