@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ButtonWrapper = styled.button`
-  /* position: absolute; */
+  position: absolute;
   top: 0px;
   right: 0px;
   height: 100%;

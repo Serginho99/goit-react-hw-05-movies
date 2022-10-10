@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchActorsFilm } from 'services/fetchMovies';
+import { List, Title, Text, ListItem, Img } from './Cast.styled';
+import defaultImage from '../../Images/default-poster.jpg';
 
 export default function Cast() {
   const [actors, setActors] = useState(null);
@@ -13,18 +15,20 @@ export default function Cast() {
   const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
   return (
-    <ul>
+    <List>
       {actors?.cast.map(({ name, character, profile_path, id }) => {
-        const IMG = `${IMAGE_BASE_URL}/${profile_path}`;
+        const IMG = profile_path
+          ? `${IMAGE_BASE_URL}/${profile_path}`
+          : defaultImage;
         return (
-          <li key={id}>
+          <ListItem key={id}>
             {' '}
-            <img src={IMG} alt="" width="150" />
-            <h2>{name}</h2>
-            <p>Character: {character}</p>
-          </li>
+            <Img src={IMG} alt="" width="150" />
+            <Title>{name}</Title>
+            <Text>Character: {character}</Text>
+          </ListItem>
         );
       })}
-    </ul>
+    </List>
   );
 }

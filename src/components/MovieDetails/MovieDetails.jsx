@@ -2,6 +2,21 @@ import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { movieDetailsById } from 'services/fetchMovies';
+import {
+  LinkEl,
+  Wrapper,
+  Box,
+  Img,
+  Content,
+  Title,
+  Text,
+  Info,
+  ListInfo,
+  ItemListInfo,
+  LinkListInfo,
+  TitleInfo,
+} from './MovieDetails.styled';
+import { CgArrowLeftR } from 'react-icons/cg';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
@@ -36,32 +51,46 @@ export default function MovieDetails() {
   const date = release_date?.slice(0, 4);
   const backLink = location.state?.from ?? '/movies';
   return (
-    <>
-      <Link to={backLink}>go back</Link>
+    <Wrapper>
+      <LinkEl to={backLink}>
+        <CgArrowLeftR />
+        go back
+      </LinkEl>
+
       {loading && <Loader />}
-      <img src={`${IMG_URL}/${poster_path}`} width="250" alt={original_title} />
-      <h2>
-        {original_title} ({date ? date : `N/A`})
-      </h2>
-      <p>User score: {voteAverage}%</p>
-      <h2>Genres</h2>
-      <p>{genre}</p>
-      <h2>Overview</h2>
-      <p>{overview}</p>
-      <p>Additional information </p>
-      <ul>
-        <li>
-          <Link to="cast" state={{ from: backLink }}>
-            Cast
-          </Link>
-        </li>
-        <li>
-          <Link to="reviews" state={{ from: backLink }}>
-            Reviews
-          </Link>
-        </li>
-      </ul>
+      <Box>
+        <Img
+          src={`${IMG_URL}/${poster_path}`}
+          width="250"
+          alt={original_title}
+        />
+        <Content>
+          <Title>
+            {original_title} ({date ? date : `N/A`})
+          </Title>
+          <Text>User score: {voteAverage}%</Text>
+          <Title>Genres</Title>
+          <Text>{genre}</Text>
+          <Title>Overview</Title>
+          <Text>{overview}</Text>
+        </Content>
+      </Box>
+      <Info>
+        <TitleInfo>Additional information </TitleInfo>
+        <ListInfo>
+          <ItemListInfo>
+            <LinkListInfo to="cast" state={{ from: backLink }}>
+              Cast
+            </LinkListInfo>
+          </ItemListInfo>
+          <ItemListInfo>
+            <LinkListInfo to="reviews" state={{ from: backLink }}>
+              Reviews
+            </LinkListInfo>
+          </ItemListInfo>
+        </ListInfo>
+      </Info>
       <Outlet />
-    </>
+    </Wrapper>
   );
 }

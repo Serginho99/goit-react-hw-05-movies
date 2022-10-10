@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Input, ButtonWrapper, Form } from './SearchBar.styled';
+import { Input, ButtonWrapper, Form, Wrapper } from './SearchBar.styled';
 
 export default function SearchBar({ submit }) {
   const [moviesName, setMoviesName] = useState('');
@@ -19,7 +19,7 @@ export default function SearchBar({ submit }) {
   }
   return (
     <Form onSubmit={handleSubmit}>
-      <div>
+      <Wrapper>
         <Input
           name="movieName"
           value={moviesName}
@@ -27,7 +27,7 @@ export default function SearchBar({ submit }) {
           onChange={handleChange}
         />
         <ButtonWrapper type="submit">Search</ButtonWrapper>
-      </div>
+      </Wrapper>
     </Form>
   );
 }
