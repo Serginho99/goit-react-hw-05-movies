@@ -24,6 +24,7 @@ export const LinkEl = styled(Link)`
 
 export const Img = styled.img`
   display: inline-block;
+  height: auto;
   margin-right: 10px;
 `;
 

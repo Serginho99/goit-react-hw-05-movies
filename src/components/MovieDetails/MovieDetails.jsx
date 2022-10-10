@@ -63,7 +63,7 @@ export default function MovieDetails() {
 
       {loading && <Loader />}
       <Box>
-        <Img src={IMG} width="250" alt={original_title} />
+        <Img src={IMG} width="300" alt={original_title} />
         <Content>
           <Title>
             {original_title} ({date ? date : `N/A`})
