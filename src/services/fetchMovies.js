@@ -41,5 +41,7 @@ export async function fetchReviews(id) {
     ${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}
     `);
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+  }
 }
