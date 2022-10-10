@@ -43,7 +43,6 @@ export default function MoviesPage() {
       <SearchBar submit={handleSubmit} />
       {loading && <Loader />}
       {movies && <MovieList items={movies} />}
-
       {movieName && (
         <button type="button" onClick={onLoadMore}>
           Load more
