@@ -2,6 +2,7 @@ import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { movieDetailsById } from 'services/fetchMovies';
+import defaultImage from '../../Images/default-poster.jpg';
 import {
   LinkEl,
   Wrapper,
@@ -31,6 +32,8 @@ export default function MovieDetails() {
       try {
         const data = await movieDetailsById(movieId);
         setMovie({ ...data });
+      } catch (error) {
+        console.log(error.message);
       } finally {
         setLoading(false);
       }
@@ -50,6 +53,7 @@ export default function MovieDetails() {
   const voteAverage = Math.ceil(vote_average * 10);
   const date = release_date?.slice(0, 4);
   const backLink = location.state?.from ?? '/movies';
+  const IMG = poster_path ? `${IMG_URL}/${poster_path}` : defaultImage;
   return (
     <Wrapper>
       <LinkEl to={backLink}>
@@ -59,11 +63,7 @@ export default function MovieDetails() {
 
       {loading && <Loader />}
       <Box>
-        <Img
-          src={`${IMG_URL}/${poster_path}`}
-          width="250"
-          alt={original_title}
-        />
+        <Img src={IMG} width="250" alt={original_title} />
         <Content>
           <Title>
             {original_title} ({date ? date : `N/A`})
