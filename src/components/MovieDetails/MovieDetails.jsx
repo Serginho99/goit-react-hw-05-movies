@@ -1,6 +1,6 @@
 import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { movieDetailsById } from 'services/fetchMovies';
 import {
   LinkEl,
