@@ -16,7 +16,7 @@ import {
   LinkListInfo,
   TitleInfo,
 } from './MovieDetails.styled';
-import { CgArrowLeftR } from 'react-icons/cg';
+// import { CgArrowLeftR } from 'react-icons/cg';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
@@ -53,7 +53,7 @@ export default function MovieDetails() {
   return (
     <Wrapper>
       <LinkEl to={backLink}>
-        <CgArrowLeftR />
+        {/* <CgArrowLeftR /> */}
         go back
       </LinkEl>
 
