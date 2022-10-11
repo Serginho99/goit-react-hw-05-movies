@@ -30,7 +30,8 @@ export default function HomePage() {
   return (
     <>
       <Title>Trending today</Title>
-      <MoviesList items={movies} />
+      {movies && <MoviesList items={movies} />}
+
       {loading ? (
         <Loader />
       ) : (

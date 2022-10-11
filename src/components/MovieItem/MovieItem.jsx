@@ -14,7 +14,7 @@ export default function MovieItem({
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const IMG = poster_path ? `${IMG_URL}/${poster_path}` : defaultImage;
   return (
-    <ListItem key={id}>
+    <ListItem>
       <LinkItem to={`/movies/${id}`} state={{ from: location }}>
         <Img src={IMG} alt="" />
         <Title>
