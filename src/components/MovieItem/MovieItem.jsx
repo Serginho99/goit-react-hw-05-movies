@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { ListItem, Img, LinkItem, Title, Span } from './MovieItem.styled';
-import defaultImage from '../../images/default-poster.jpg';
+import defaultImage from '../../Images/default-poster.jpg';
 
 export default function MovieItem({
   id,

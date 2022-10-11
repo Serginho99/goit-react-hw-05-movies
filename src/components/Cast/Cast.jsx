@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchActorsFilm } from 'services/fetchMovies';
 import { List, Title, Text, ListItem, Img } from './Cast.styled';
-import defaultImage from '../../images/default-poster.jpg';
+import defaultImage from '../../Images/default-poster.jpg';
 
 export default function Cast() {
   const [actors, setActors] = useState(null);

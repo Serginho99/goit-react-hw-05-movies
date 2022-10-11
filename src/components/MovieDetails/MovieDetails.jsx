@@ -2,7 +2,7 @@ import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { movieDetailsById } from 'services/fetchMovies';
-import defaultImage from '../../images/default-poster.jpg';
+import defaultImage from '../../Images/default-poster.jpg';
 import {
   LinkEl,
   Wrapper,
