@@ -7,8 +7,10 @@ import Layout from './Layout/Layout';
 // import MoviesPage from './Pages/MoviesPage';
 // import Reviews from './Reviews/Reviews';
 
-const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
-const MoviesPage = lazy(() => import('./Pages/MoviesPage/MoviesPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const MoviesPage = lazy(() =>
+  import('../pages/HomePage/MoviesPage/MoviesPage')
+);
 const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));

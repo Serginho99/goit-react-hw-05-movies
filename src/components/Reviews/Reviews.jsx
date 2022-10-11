@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'services/fetchMovies';
+import { List, Title, Text } from './Reviews.styled';
 
 export default function Reviews() {
   const [reviews, setReviews] = useState(null);
@@ -11,19 +12,19 @@ export default function Reviews() {
   }, [movieId]);
 
   return (
-    <ul>
+    <List>
       {reviews?.results.length === 0 ? (
-        <p>We dont't have any reviews for this movie.</p>
+        <Text>We don't have any reviews for this movie.</Text>
       ) : (
         reviews?.results.map(({ id, author, content }) => {
           return (
             <li key={id}>
-              <h2>{author}</h2>
-              <p>{content}</p>
+              <Title>{author}</Title>
+              <Text>{content}</Text>
             </li>
           );
         })
       )}
-    </ul>
+    </List>
   );
 }

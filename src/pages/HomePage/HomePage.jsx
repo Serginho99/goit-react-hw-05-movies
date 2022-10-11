@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchTrendingFilms } from '../../../services/fetchMovies';
-import MoviesList from '../../MovieList/MoviesList';
+import { fetchTrendingFilms } from '../../services/fetchMovies';
+import MoviesList from '../../components/MovieList/MoviesList';
 import Loader from 'components/Loader/Loader';
 import { Title, Button } from './HomePage.styled';
 
@@ -35,7 +35,7 @@ export default function HomePage() {
         <Loader />
       ) : (
         <Button type="button" onClick={onLoadMore}>
-          Load more
+          load more
         </Button>
       )}
     </>

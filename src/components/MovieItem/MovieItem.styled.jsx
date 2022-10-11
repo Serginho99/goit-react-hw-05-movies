@@ -24,5 +24,9 @@ export const LinkItem = styled(Link)`
 `;
 
 export const Title = styled.h2`
-  font-weight: 200;
+  font-weight: 500;
+`;
+
+export const Span = styled.span`
+  font-weight: 100;
 `;

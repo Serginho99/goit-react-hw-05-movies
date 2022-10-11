@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Input, ButtonWrapper, Form, Wrapper } from './SearchBar.styled';
+import { Notify } from 'notiflix';
 
 export default function SearchBar({ submit }) {
   const [moviesName, setMoviesName] = useState('');
@@ -10,6 +11,9 @@ export default function SearchBar({ submit }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (moviesName.trim() === '') {
+      return Notify.info('Enter name film');
+    }
     submit({ moviesName });
     reset();
   }
@@ -25,6 +29,8 @@ export default function SearchBar({ submit }) {
           value={moviesName}
           type="text"
           onChange={handleChange}
+          autoComplete="off"
+          placeholder="Search film"
         />
         <ButtonWrapper type="submit">Search</ButtonWrapper>
       </Wrapper>
