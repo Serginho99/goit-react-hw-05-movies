@@ -22,7 +22,6 @@ export default function Cast() {
           : defaultImage;
         return (
           <ListItem key={id}>
-            {' '}
             <Img src={IMG} alt="" width="150" />
             <Title>{name}</Title>
             <Text>Character: {character}</Text>

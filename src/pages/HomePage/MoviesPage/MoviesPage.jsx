@@ -9,7 +9,6 @@ import { Notify } from 'notiflix';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
-  const [movieName, setMovieName] = useState('');
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(null);
@@ -44,7 +43,6 @@ export default function MoviesPage() {
 
   function handleSubmit({ moviesName }) {
     setMovies([]);
-    setMovieName(moviesName);
     setSearchParams({ name_film: moviesName });
   }
 
