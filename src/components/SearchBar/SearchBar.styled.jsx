@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   width: 400px;
+  height: 20px;
   font-size: 16px;
   padding: 6px 80px 6px 6px;
   outline: none;
@@ -20,14 +21,10 @@ export const ButtonWrapper = styled.button`
   top: 0px;
   right: 0px;
   height: 100%;
-  /* display: flex; */
-  /* -webkit-box-pack: center; */
   justify-content: center;
-  /* -webkit-box-align: center; */
   outline: none;
   align-items: center;
   border: 2px solid rgb(204, 204, 204);
-  /* border: none; */
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: rgb(255, 255, 255);
@@ -40,7 +37,7 @@ export const ButtonWrapper = styled.button`
   :hover {
     background-color: #5e5eef;
     color: white;
-    border: none;
+    border-color: #5e5eef;
   }
 `;
 
