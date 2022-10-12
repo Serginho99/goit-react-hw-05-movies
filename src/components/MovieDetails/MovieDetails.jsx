@@ -1,11 +1,10 @@
 import Loader from 'components/Loader/Loader';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { movieDetailsById } from 'services/fetchMovies';
 import defaultImage from '../../Images/default-poster.jpg';
 import {
   LinkEl,
-  Wrapper,
   Box,
   Img,
   Content,
@@ -55,7 +54,7 @@ export default function MovieDetails() {
   const backLink = location.state?.from ?? '/movies';
   const IMG = poster_path ? `${IMG_URL}/${poster_path}` : defaultImage;
   return (
-    <Wrapper>
+    <>
       <LinkEl to={backLink}>
         <CgArrowLeftR />
         go back
@@ -90,7 +89,9 @@ export default function MovieDetails() {
           </ItemListInfo>
         </ListInfo>
       </Info>
-      <Outlet />
-    </Wrapper>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 }

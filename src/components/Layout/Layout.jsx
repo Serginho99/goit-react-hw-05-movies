@@ -3,17 +3,22 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header, Main } from './Layout.styled';
 import Loader from 'components/Loader/Loader';
+import Container from 'components/Container/Container';
 
 export default function Layout() {
   return (
     <>
       <Header>
-        <NavBar />
+        <Container>
+          <NavBar />
+        </Container>
       </Header>
       <Main>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
+        <Container>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </Container>
       </Main>
     </>
   );
