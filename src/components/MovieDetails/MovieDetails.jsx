@@ -40,6 +40,11 @@ export default function MovieDetails() {
     movieById();
   }, [movieId]);
 
+  const isCast = location.pathname.includes('cast');
+  const castLink = isCast ? `/movies/${movieId}` : `cast`;
+  const isReviews = location.pathname.includes('reviews');
+  const reviewsLink = isReviews ? `/movies/${movieId}` : `reviews`;
+
   const {
     original_title,
     genres,
@@ -78,12 +83,12 @@ export default function MovieDetails() {
         <TitleInfo>Additional information </TitleInfo>
         <ListInfo>
           <ItemListInfo>
-            <LinkListInfo to="cast" state={{ from: backLink }}>
+            <LinkListInfo to={castLink} state={{ from: backLink }}>
               Cast
             </LinkListInfo>
           </ItemListInfo>
           <ItemListInfo>
-            <LinkListInfo to="reviews" state={{ from: backLink }}>
+            <LinkListInfo to={reviewsLink} state={{ from: backLink }}>
               Reviews
             </LinkListInfo>
           </ItemListInfo>
