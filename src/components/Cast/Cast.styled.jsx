@@ -9,7 +9,9 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  width: 180px;
+  box-shadow: rgb(204 204 204) 0px 0px 8px 1px;
+  border-radius: 5px;
+  width: calc((100% - 4 * 10px) / 6);
 `;
 
 export const Title = styled.h3`
