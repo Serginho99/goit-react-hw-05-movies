@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { fetchMovieByQuery } from 'services/fetchMovies';
 import SearchBar from 'components/SearchBar/SearchBar';
 import MovieList from 'components/MovieList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
-import { Button } from '../HomePage.styled';
 import { Notify } from 'notiflix';
+import { PageContext } from 'components/PageContext/PageContext';
+import LoadMore from 'components/LoadMore/LoadMore';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
+  const { page } = useContext(PageContext);
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,9 +47,6 @@ export default function MoviesPage() {
     setSearchParams({ name_film: moviesName });
   }
 
-  function onLoadMore() {
-    setPage(page => page + 1);
-  }
   const endList = page < totalPages;
   const isFilms = movies?.length !== 0;
 
@@ -56,16 +54,7 @@ export default function MoviesPage() {
     <>
       <SearchBar submit={handleSubmit} />
       {movies && <MovieList items={movies} />}
-      {loading ? (
-        <Loader />
-      ) : (
-        endList &&
-        isFilms && (
-          <Button type="button" onClick={onLoadMore}>
-            Load more
-          </Button>
-        )
-      )}
+      {loading ? <Loader /> : endList && isFilms && <LoadMore />}
     </>
   );
 }

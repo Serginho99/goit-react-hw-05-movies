@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 // import Cast from './Cast/Cast';
 import Layout from './Layout/Layout';
+import PageContextProvider from './PageContext/PageContext';
 // import MovieDetails from './MovieDetails/MovieDetails';
 // import HomePage from './Pages/HomePage/HomePage';
 // import MoviesPage from './Pages/MoviesPage';
@@ -17,7 +18,7 @@ const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <>
+    <PageContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -28,6 +29,6 @@ export const App = () => {
           </Route>
         </Route>
       </Routes>
-    </>
+    </PageContextProvider>
   );
 };
