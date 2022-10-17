@@ -3,7 +3,7 @@ import { NavList, NavListItem, NavListLink } from './NavBar.styled';
 
 export default function NavBar() {
   return (
-    <>
+    <nav>
       <NavList>
         <NavListItem>
           <NavListLink to={'/'} end>
@@ -14,6 +14,6 @@ export default function NavBar() {
           <NavListLink to={'/movies'}>Movies</NavListLink>
         </NavListItem>
       </NavList>
-    </>
+    </nav>
   );
 }
